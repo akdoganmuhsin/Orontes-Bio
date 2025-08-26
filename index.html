@@ -19,40 +19,49 @@
         header {
             background-color: #16a34a;
             color: white;
-            padding: 1rem; /* Reduced padding for less dominance */
+            padding: 1rem;
         }
         header img {
-            max-width: 250px; /* Slightly smaller logo */
+            max-width: 250px;
             margin-bottom: 0.5rem;
         }
         h1 {
             margin: 0;
-            font-size: 2rem; /* Reduced font size for balance */
+            font-size: 2rem;
         }
         p {
             font-size: 1.2rem;
-            max-width: 700px; /* Slightly wider for better content spread */
-            margin: 1.5rem auto; /* Increased margin for spacing */
+            max-width: 700px;
+            margin: 1.5rem auto;
         }
         nav {
-            margin: 3rem 0; /* Increased margin to give more space */
+            margin: 3rem 0;
         }
-        nav a {
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
             text-decoration: none;
             color: #2980b9;
             font-size: 1.1rem;
-            margin: 0 1rem;
             padding: 0.5rem 1rem;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        nav a:hover {
+        nav ul li a:hover {
             background-color: #3498db;
             color: white;
         }
         main {
             flex: 1;
-            padding: 2rem; /* Added padding for better content spacing */
+            padding: 2rem;
         }
         footer {
             background-color: #16a34a;
@@ -69,13 +78,16 @@
     </header>
     <main>
         <p>Welcome to Orontes Bio, a platform dedicated to advancing biotechnology through innovative research, studies, and projects.</p>
-        <nav>
-            <a href="aboutme.html">About Me</a>
-            <a href="research.html">Research</a>
-            <a href="studies.html">Studies</a>
-            <a href="projects.html">Projects</a>
-        </nav>
     </main>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="studies.html">Studies</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
     <footer>
         <p>&copy; 2025 Orontes Bio. All rights reserved.</p>
     </footer>
