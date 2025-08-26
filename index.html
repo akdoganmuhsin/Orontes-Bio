@@ -3,47 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Orontes Bio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Orontes Bio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #16a34a;
+            color: white;
+            padding: 2rem;
+        }
+        header img {
+            max-width: 300px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        nav {
+            margin: 2rem 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2980b9;
+            font-size: 1.1rem;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        main {
+            flex: 1; /* Make main content expand to push footer down */
+        }
+        footer {
+            background-color: #16a34a;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="min-h-screen flex flex-col">
-        <!-- Navigation Bar -->
-        <nav class="bg-green-600 text-white py-4">
-            <div class="container mx-auto px-4 flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold">Orontes Bio</a>
-                <div>
-                    <a href="index.html" class="px-4 hover:underline">Home</a>
-                    <a href="aboutme.html" class="px-4 font-semibold underline">About Me</a>
-                </div>
-            </div>
+<body>
+    <header>
+        <img src="logo.png" alt="Orontes Bio Logo">
+        <h1>Orontes Bio</h1>
+    </header>
+    <main>
+        <p>Welcome to Orontes Bio, a platform dedicated to advancing biotechnology through innovative research, studies, and projects.</p>
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="research.html">Research</a>
+            <a href="studies.html">Studies ന</a>
+            <a href="projects.html">Projects</a>
         </nav>
-
-        <!-- Main Content -->
-        <main class="container mx-auto px-4 py-12 flex-grow">
-            <section class="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">About Me</h2>
-                <p class="text-lg text-gray-700 mb-4">
-                    I’m a passionate triathlete and biologist born and raised in the vibrant landscapes of Antakya, where the Orontes River (Asi Nehri) flows through the heart of my story. Growing up near the river, I spent my days cycling through its scenic surroundings and swimming 1km daily, a routine that fuels my discipline and love for nature. My connection to this region runs deep, rooted in its rich history and natural beauty.
-                </p>
-                <p class="text-lg text-gray-700 mb-4">
-                    My journey began in Gümüşgöze, where I attended Gümüşgöze Primary School, a place steeped in history near the renowned Yakto Mosaics and ancient Roman castle ruins, once a summer retreat for emperors. This unique blend of heritage and nature sparked my curiosity for the world around me. I continued my education at Necmi Asfuroğlu Anadolu Lisesi, Antakya’s premier public high school, where I developed a strong foundation for my academic pursuits.
-                </p>
-                <p class="text-lg text-gray-700 mb-4">
-                    I pursued my bachelor’s degree in biology at ODTÜ, where I honed my scientific expertise and passion for discovery. Now, as a master’s student at ODTÜ, I’m diving deeper into biotechnology, exploring innovative solutions to real-world challenges. With a deep-rooted passion for biology and a drive to innovate, I founded Orontes Bio to bridge science and the cultural legacy of my hometown.
-                </p>
-                <p class="text-lg text-gray-700">
-                    My experiences as a triathlete—balancing endurance, strategy, and resilience—shape my approach to tackling challenges in biotechnology. Whether I’m swimming my daily 1km, cycling through Antakya’s hills, or pushing the boundaries of scientific research, I’m driven by a commitment to growth, sustainability, and making a meaningful impact.
-                </p>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white py-4">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2025 Orontes Bio. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Orontes Bio. All rights reserved.</p>
+    </footer>
 </body>
 </html>
