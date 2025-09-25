@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orontes Bio - About Me</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
-            color: #333;
+            color: #4a4a4a;
             text-align: center;
             min-height: 100vh;
             display: flex;
@@ -28,15 +30,25 @@
         h1 {
             margin: 0;
             font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         h2 {
             font-size: 1.8rem;
             margin: 1.5rem 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 1.5rem auto;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            line-height: 1.6;
+            color: #5a5a5a;
         }
         nav {
             margin: 3rem 0;
@@ -53,15 +65,16 @@
         }
         nav ul li a {
             text-decoration: none;
-            color: #2980b9;
+            color: #3498db;
             font-size: 1.1rem;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
         }
         nav ul li a:hover {
-            background-color: #3498db;
-            color: white;
+            background-color: #a2d5f2;
+            color: #2c3e50;
         }
         main {
             flex: 1;
@@ -79,16 +92,17 @@
         }
         .section a {
             text-decoration: none;
-            color: #2980b9;
+            color: #3498db;
             font-size: 1.2rem;
             padding: 0.5rem 1rem;
-            border: 2px solid #2980b9;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
         }
         .section a:hover {
-            background-color: #3498db;
-            color: white;
+            background-color: #a2d5f2;
+            color: #2c3e50;
         }
         .social-links {
             display: flex;
@@ -101,16 +115,17 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: #2980b9;
+            color: #3498db;
             font-size: 1.1rem;
             padding: 0.5rem;
-            border: 2px solid #2980b9;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
         }
         .social-links a:hover {
-            background-color: #3498db;
-            color: white;
+            background-color: #a2d5f2;
+            color: #2c3e50;
         }
         .social-links img {
             width: 72px;
