@@ -78,7 +78,7 @@
             width: 100%;
             z-index: 20;
         }
-        .network-effect {
+        .bilayer-effect {
             position: absolute;
             top: 0;
             left: 0;
@@ -86,155 +86,138 @@
             height: 100%;
             z-index: 5;
             overflow: hidden;
+            opacity: 0.3;
         }
-        .network-effect svg {
+        .bilayer-effect svg {
             width: 100%;
             height: 100%;
-            opacity: 0.25; /* Subtle to keep content readable */
         }
-        .network-effect path {
-            stroke: url(#flowGradient);
-            stroke-width: 0.7;
-            fill: none;
+        /* Lipid heads (circles) */
+        .lipid-head {
+            fill: #3498db;
             opacity: 0.8;
         }
-        .network-effect circle {
+        /* Lipid tails (lines) */
+        .lipid-tail {
+            stroke: #2980b9;
+            stroke-width: 2;
+            opacity: 0.6;
+        }
+        /* Bilayer waves */
+        .bilayer-wave {
+            stroke: none;
+            fill: url(#bilayerGradient);
+            opacity: 0.5;
+        }
+        /* Transport proteins (different types) */
+        .transport-channel {
             fill: #16a34a;
-            stroke: #3498db;
-            stroke-width: 0.3;
+            opacity: 0.7;
+        }
+        .channel-hole {
+            fill: #f4f4f9;
+            opacity: 0.9;
+        }
+        .transport-carrier {
+            fill: #27ae60;
+            opacity: 0.7;
+        }
+        .transport-pump {
+            fill: #2ecc71;
+            opacity: 0.7;
+        }
+        .pump-arrow {
+            fill: #ffcc00;
+            opacity: 0.8;
+        }
+        /* Molecules and ions being transported */
+        .molecule {
+            fill: #ffcc00;
+            r: 3;
+        }
+        .molecule-ion {
+            fill: #e74c3c;
             r: 2.5;
-            filter: url(#flowGlow);
-        }
-        .network-effect path.animate {
-            animation: waveFlow 5s linear infinite;
-            stroke-dasharray: 4, 4;
-        }
-        .network-effect circle.animate {
-            animation: slidePath 6s linear infinite;
-        }
-        @keyframes waveFlow {
-            to {
-                stroke-dashoffset: -8;
-            }
-        }
-        @keyframes slidePath {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(2px, -2px); }
-            100% { transform: translate(0, 0); }
         }
     </style>
 </head>
 <body>
-    <div class="network-effect">
+    <div class="bilayer-effect">
         <svg viewBox="0 0 200 200">
-            <!-- Gradient for flowing lines -->
+            <!-- Gradient for bilayer -->
             <defs>
-                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#2980b9;stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:#3498db;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                <linearGradient id="bilayerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.5" />
+                    <stop offset="50%" style="stop-color:#2980b9;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#3498db;stop-opacity:0.5" />
                 </linearGradient>
-                <filter id="flowGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
-                    <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
             </defs>
-            <!-- Nodes (mimicking molecules or synapses) -->
-            <circle cx="20" cy="20" class="animate" />
-            <circle cx="50" cy="30" class="animate" />
-            <circle cx="80" cy="25" class="animate" />
-            <circle cx="110" cy="20" class="animate" />
-            <circle cx="140" cy="30" class="animate" />
-            <circle cx="170" cy="25" class="animate" />
-            <circle cx="30" cy="50" class="animate" />
-            <circle cx="60" cy="60" class="animate" />
-            <circle cx="90" cy="55" class="animate" />
-            <circle cx="120" cy="60" class="animate" />
-            <circle cx="150" cy="50" class="animate" />
-            <circle cx="180" cy="55" class="animate" />
-            <circle cx="25" cy="80" class="animate" />
-            <circle cx="55" cy="90" class="animate" />
-            <circle cx="85" cy="85" class="animate" />
-            <circle cx="115" cy="90" class="animate" />
-            <circle cx="145" cy="80" class="animate" />
-            <circle cx="175" cy="85" class="animate" />
-            <circle cx="30" cy="110" class="animate" />
-            <circle cx="60" cy="120" class="animate" />
-            <circle cx="90" cy="115" class="animate" />
-            <circle cx="120" cy="120" class="animate" />
-            <circle cx="150" cy="110" class="animate" />
-            <circle cx="180" cy="115" class="animate" />
-            <circle cx="40" cy="140" class="animate" />
-            <circle cx="70" cy="150" class="animate" />
-            <circle cx="100" cy="145" class="animate" />
-            <circle cx="130" cy="150" class="animate" />
-            <circle cx="160" cy="140" class="animate" />
-            <circle cx="190" cy="145" class="animate" />
-            <!-- Flowing Bezier connections (mimicking DNA or synaptic pathways) -->
-            <path d="M20 20 Q 35 25, 50 30" class="animate" />
-            <path d="M50 30 Q 65 25, 80 25" class="animate" />
-            <path d="M80 25 Q 95 20, 110 20" class="animate" />
-            <path d="M110 20 Q 125 25, 140 30" class="animate" />
-            <path d="M140 30 Q 155 25, 170 25" class="animate" />
-            <path d="M30 50 Q 45 55, 60 60" class="animate" />
-            <path d="M60 60 Q 75 55, 90 55" class="animate" />
-            <path d="M90 55 Q 105 60, 120 60" class="animate" />
-            <path d="M120 60 Q 135 55, 150 50" class="animate" />
-            <path d="M150 50 Q 165 55, 180 55" class="animate" />
-            <path d="M25 80 Q 40 85, 55 90" class="animate" />
-            <path d="M55 90 Q 70 85, 85 85" class="animate" />
-            <path d="M85 85 Q 100 90, 115 90" class="animate" />
-            <path d="M115 90 Q 130 85, 145 80" class="animate" />
-            <path d="M145 80 Q 160 85, 175 85" class="animate" />
-            <path d="M30 110 Q 45 115, 60 120" class="animate" />
-            <path d="M60 120 Q 75 115, 90 115" class="animate" />
-            <path d="M90 115 Q 105 120, 120 120" class="animate" />
-            <path d="M120 120 Q 135 115, 150 110" class="animate" />
-            <path d="M150 110 Q 165 115, 180 115" class="animate" />
-            <path d="M40 140 Q 55 145, 70 150" class="animate" />
-            <path d="M70 150 Q 85 145, 100 145" class="animate" />
-            <path d="M100 145 Q 115 150, 130 150" class="animate" />
-            <path d="M130 150 Q 145 145, 160 140" class="animate" />
-            <path d="M160 140 Q 175 145, 190 145" class="animate" />
-            <!-- Cross-layer connections for fluidity -->
-            <path d="M20 20 Q 25 35, 30 50" class="animate" />
-            <path d="M50 30 Q 55 45, 60 60" class="animate" />
-            <path d="M80 25 Q 85 40, 90 55" class="animate" />
-            <path d="M110 20 Q 115 35, 120 60" class="animate" />
-            <path d="M140 30 Q 145 45, 150 50" class="animate" />
-            <path d="M170 25 Q 175 40, 180 55" class="animate" />
-            <path d="M30 50 Q 35 65, 25 80" class="animate" />
-            <path d="M60 60 Q 65 75, 55 90" class="animate" />
-            <path d="M90 55 Q 95 70, 85 85" class="animate" />
-            <path d="M120 60 Q 125 75, 115 90" class="animate" />
-            <path d="M150 50 Q 155 65, 145 80" class="animate" />
-            <path d="M180 55 Q 185 70, 175 85" class="animate" />
-            <path d="M25 80 Q 30 95, 30 110" class="animate" />
-            <path d="M55 90 Q 60 105, 60 120" class="animate" />
-            <path d="M85 85 Q 90 100, 90 115" class="animate" />
-            <path d="M115 90 Q 120 105, 120 120" class="animate" />
-            <path d="M145 80 Q 150 95, 150 110" class="animate" />
-            <path d="M175 85 Q 180 100, 180 115" class="animate" />
-            <path d="M30 110 Q 35 125, 40 140" class="animate" />
-            <path d="M60 120 Q 65 135, 70 150" class="animate" />
-            <path d="M90 115 Q 95 130, 100 145" class="animate" />
-            <path d="M120 120 Q 125 135, 130 150" class="animate" />
-            <path d="M150 110 Q 155 125, 160 140" class="animate" />
-            <path d="M180 115 Q 185 130, 190 145" class="animate" />
-            <!-- Diagonal connections for nexus effect -->
-            <path d="M20 20 Q 40 40, 55 90" class="animate" />
-            <path d="M50 30 Q 70 50, 90 115" class="animate" />
-            <path d="M80 25 Q 100 45, 120 120" class="animate" />
-            <path d="M110 20 Q 130 40, 150 110" class="animate" />
-            <path d="M140 30 Q 160 50, 180 115" class="animate" />
-            <path d="M30 50 Q 50 70, 70 150" class="animate" />
-            <path d="M60 60 Q 80 80, 100 145" class="animate" />
-            <path d="M90 55 Q 110 75, 130 150" class="animate" />
-            <path d="M120 60 Q 140 80, 160 140" class="animate" />
-            <path d="M150 50 Q 170 70, 190 145" class="animate" />
+            <!-- Upper bilayer wave -->
+            <path class="bilayer-wave" id="upper-wave" d="M0 50 Q50 30, 100 50 Q150 70, 200 50 L200 60 Q150 40, 100 60 Q50 80, 0 60 Z" transform="translate(0, -10)" />
+            <!-- Lower bilayer wave -->
+            <path class="bilayer-wave" id="lower-wave" d="M0 150 Q50 130, 100 150 Q150 170, 200 150 L200 160 Q150 140, 100 160 Q50 180, 0 160 Z" transform="translate(0, 10)" />
+            <!-- Lipid heads and tails -->
+            <g class="lipid-layer">
+                <!-- Upper layer -->
+                <circle class="lipid-head" cx="10" cy="45" r="5" />
+                <line class="lipid-tail" x1="10" y1="50" x2="10" y2="60" />
+                <circle class="lipid-head" cx="30" cy="45" r="5" />
+                <line class="lipid-tail" x1="30" y1="50" x2="30" y2="60" />
+                <circle class="lipid-head" cx="50" cy="45" r="5" />
+                <line class="lipid-tail" x1="50" y1="50" x2="50" y2="60" />
+                <circle class="lipid-head" cx="70" cy="45" r="5" />
+                <line class="lipid-tail" x1="70" y1="50" x2="70" y2="60" />
+                <circle class="lipid-head" cx="90" cy="45" r="5" />
+                <line class="lipid-tail" x1="90" y1="50" x2="90" y2="60" />
+                <circle class="lipid-head" cx="110" cy="45" r="5" />
+                <line class="lipid-tail" x1="110" y1="50" x2="110" y2="60" />
+                <circle class="lipid-head" cx="130" cy="45" r="5" />
+                <line class="lipid-tail" x1="130" y1="50" x2="130" y2="60" />
+                <circle class="lipid-head" cx="150" cy="45" r="5" />
+                <line class="lipid-tail" x1="150" y1="50" x2="150" y2="60" />
+                <circle class="lipid-head" cx="170" cy="45" r="5" />
+                <line class="lipid-tail" x1="170" y1="50" x2="170" y2="60" />
+                <circle class="lipid-head" cx="190" cy="45" r="5" />
+                <line class="lipid-tail" x1="190" y1="50" x2="190" y2="60" />
+                <!-- Lower layer -->
+                <circle class="lipid-head" cx="10" cy="155" r="5" />
+                <line class="lipid-tail" x1="10" y1="150" x2="10" y2="140" />
+                <circle class="lipid-head" cx="30" cy="155" r="5" />
+                <line class="lipid-tail" x1="30" y1="150" x2="30" y2="140" />
+                <circle class="lipid-head" cx="50" cy="155" r="5" />
+                <line class="lipid-tail" x1="50" y1="150" x2="50" y2="140" />
+                <circle class="lipid-head" cx="70" cy="155" r="5" />
+                <line class="lipid-tail" x1="70" y1="150" x2="70" y2="140" />
+                <circle class="lipid-head" cx="90" cy="155" r="5" />
+                <line class="lipid-tail" x1="90" y1="150" x2="90" y2="140" />
+                <circle class="lipid-head" cx="110" cy="155" r="5" />
+                <line class="lipid-tail" x1="110" y1="150" x2="110" y2="140" />
+                <circle class="lipid-head" cx="130" cy="155" r="5" />
+                <line class="lipid-tail" x1="130" y1="150" x2="130" y2="140" />
+                <circle class="lipid-head" cx="150" cy="155" r="5" />
+                <line class="lipid-tail" x1="150" y1="150" x2="150" y2="140" />
+                <circle class="lipid-head" cx="170" cy="155" r="5" />
+                <line class="lipid-tail" x1="170" y1="150" x2="170" y2="140" />
+                <circle class="lipid-head" cx="190" cy="155" r="5" />
+                <line class="lipid-tail" x1="190" y1="150" x2="190" y2="140" />
+            </g>
+            <!-- Transport proteins -->
+            <rect class="transport-channel" x="40" y="45" width="10" height="110" rx="2" />
+            <rect class="channel-hole" x="42" y="50" width="6" height="100" rx="1" />
+            <ellipse class="transport-carrier" cx="100" cy="100" rx="8" ry="50" />
+            <ellipse class="channel-hole" cx="100" cy="100" rx="4" ry="40" />
+            <rect class="transport-pump" x="160" y="45" width="12" height="110" rx="3" />
+            <polygon class="pump-arrow" points="166,80 170,90 162,90" />
+            <!-- Moving molecules and ions -->
+            <circle class="molecule" data-cx="45" data-cy="40" />
+            <circle class="molecule" data-cx="100" data-cy="60" />
+            <circle class="molecule" data-cx="165" data-cy="70" />
+            <circle class="molecule" data-cx="45" data-cy="160" />
+            <circle class="molecule" data-cx="100" data-cy="140" />
+            <circle class="molecule" data-cx="165" data-cy="130" />
+            <circle class="molecule-ion" data-cx="42" data-cy="50" />
+            <circle class="molecule-ion" data-cx="102" data-cy="90" />
+            <circle class="molecule-ion" data-cx="162" data-cy="100" />
         </svg>
     </div>
     <header>
@@ -265,5 +248,63 @@
     <footer>
         <p>&copy; 2025 Orontes Bio. All rights reserved.</p>
     </footer>
+    <script>
+        // Stochastic animation for lipid heads
+        const lipidHeads = document.querySelectorAll('.lipid-head');
+        lipidHeads.forEach(head => {
+            setInterval(() => {
+                const dx = (Math.random() - 0.5) * 2; // Random x shift (-1 to 1)
+                const dy = (Math.random() - 0.5) * 2; // Random y shift (-1 to 1)
+                head.setAttribute('transform', `translate(${dx}, ${dy})`);
+            }, 1000 + Math.random() * 500); // Random interval 1-1.5s
+        });
+
+        // Stochastic animation for lipid tails
+        const lipidTails = document.querySelectorAll('.lipid-tail');
+        lipidTails.forEach(tail => {
+            setInterval(() => {
+                const skew = (Math.random() - 0.5) * 4; // Random skew (-2 to 2 degrees)
+                tail.setAttribute('transform', `skewX(${skew})`);
+            }, 1200 + Math.random() * 600); // Random interval 1.2-1.8s
+        });
+
+        // Stochastic wave paths for bilayer
+        const upperWave = document.getElementById('upper-wave');
+        const lowerWave = document.getElementById('lower-wave');
+        function updateWavePaths() {
+            const q1x = 50 + (Math.random() - 0.5) * 10; // Random control point x
+            const q1y = 30 + (Math.random() - 0.5) * 10; // Random control point y
+            const q2x = 150 + (Math.random() - 0.5) * 10;
+            const q2y = 70 + (Math.random() - 0.5) * 10;
+            const q3x = 50 + (Math.random() - 0.5) * 10;
+            const q3y = 40 + (Math.random() - 0.5) * 10;
+            const q4x = 150 + (Math.random() - 0.5) * 10;
+            const q4y = 80 + (Math.random() - 0.5) * 10;
+            upperWave.setAttribute('d', `M0 50 Q${q1x} ${q1y}, 100 50 Q${q2x} ${q2y}, 200 50 L200 60 Q${q4x} ${q4y}, 100 60 Q${q3x} ${q3y}, 0 60 Z`);
+            const lq1x = 50 + (Math.random() - 0.5) * 10;
+            const lq1y = 130 + (Math.random() - 0.5) * 10;
+            const lq2x = 150 + (Math.random() - 0.5) * 10;
+            const lq2y = 170 + (Math.random() - 0.5) * 10;
+            const lq3x = 50 + (Math.random() - 0.5) * 10;
+            const lq3y = 140 + (Math.random() - 0.5) * 10;
+            const lq4x = 150 + (Math.random() - 0.5) * 10;
+            const lq4y = 180 + (Math.random() - 0.5) * 10;
+            lowerWave.setAttribute('d', `M0 150 Q${lq1x} ${lq1y}, 100 150 Q${lq2x} ${lq2y}, 200 150 L200 160 Q${lq4x} ${lq4y}, 100 160 Q${lq3x} ${lq3y}, 0 160 Z`);
+        }
+        setInterval(updateWavePaths, 2000); // Update wave every 2s
+
+        // Stochastic movement for molecules and ions
+        const molecules = document.querySelectorAll('.molecule, .molecule-ion');
+        molecules.forEach(mol => {
+            const baseCx = parseFloat(mol.getAttribute('data-cx'));
+            const baseCy = parseFloat(mol.getAttribute('data-cy'));
+            setInterval(() => {
+                const dx = (Math.random() - 0.5) * 5; // Random x shift (-2.5 to 2.5)
+                const dy = (Math.random() - 0.5) * 10; // Random y shift (-5 to 5)
+                mol.setAttribute('cx', baseCx + dx);
+                mol.setAttribute('cy', baseCy + dy);
+            }, 800 + Math.random() * 400); // Random interval 0.8-1.2s
+        });
+    </script>
 </body>
 </html>
