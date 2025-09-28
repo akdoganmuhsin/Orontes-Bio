@@ -21,16 +21,16 @@
         header {
             background-color: #16a34a;
             color: white;
-            padding: 1rem;
+            padding: 0.5rem; /* Reduced from 1rem */
             z-index: 20;
         }
         header img {
-            max-width: 250px;
-            margin-bottom: 0.5rem;
+            max-width: 150px; /* Reduced from 250px */
+            margin-bottom: 0.3rem; /* Adjusted for compactness */
         }
         h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 1.5rem; /* Reduced from 2rem */
         }
         p {
             font-size: 1.2rem;
@@ -93,7 +93,7 @@
             height: 100%;
         }
         .circuit-node {
-            fill: #9b59b6; /* Purple for genetic elements */
+            fill: #9b59b6;
             stroke: #3498db;
             stroke-width: 0.5;
             r: 4;
@@ -203,11 +203,11 @@
             const baseCx = parseFloat(node.getAttribute('data-cx'));
             const baseCy = parseFloat(node.getAttribute('data-cy'));
             setInterval(() => {
-                const dx = (Math.random() - 0.5) * 3; // Random shift
+                const dx = (Math.random() - 0.5) * 3;
                 const dy = (Math.random() - 0.5) * 3;
                 node.setAttribute('cx', baseCx + dx);
                 node.setAttribute('cy', baseCy + dy);
-            }, 1000 + Math.random() * 1000); // Random interval 1-2s
+            }, 1000 + Math.random() * 1000);
         });
 
         // Stochastic pulsing for circuit links
@@ -223,31 +223,29 @@
                     }
                 }
                 link.setAttribute('d', parts.join(' '));
-                const width = 1 + Math.random() * 0.5; // Random stroke width
+                const width = 1 + Math.random() * 0.5;
                 link.setAttribute('stroke-width', width);
-            }, 1500 + Math.random() * 1000); // Random interval 1.5-2.5s
+            }, 1500 + Math.random() * 1000);
         });
 
-        // Create vesicles (bubbles) with network-integrated paths
+        // Create vesicles with network-integrated paths
         function createVesicle() {
             const vesicle = document.createElement('div');
             vesicle.classList.add('vesicle');
             
-            const size = Math.random() * 30 + 10; // 10-40px
+            const size = Math.random() * 30 + 10;
             vesicle.style.width = `${size}px`;
             vesicle.style.height = `${size}px`;
             
             vesicle.style.left = `${Math.random() * 100}vw`;
             vesicle.style.bottom = '0';
             
-            const duration = Math.random() * 4 + 4; // 4-8s
+            const duration = Math.random() * 4 + 4;
             vesicle.style.animationDuration = `${duration}s`;
             
-            // Random hue in biotech palette
-            const hue = Math.random() * 60 + 160; // Green-blue hues
+            const hue = Math.random() * 60 + 160;
             vesicle.style.background = `radial-gradient(circle, hsla(${hue}, 80%, 60%, 0.5), hsla(${hue}, 70%, 40%, 0.3))`;
             
-            // Random wobble path through network
             const wobbleKeyframes = `@keyframes wobble${Math.floor(Math.random() * 1000)} {
                 0% { transform: translateX(0); }
                 25% { transform: translateX(${Math.random() * 20 - 10}px); }
@@ -267,12 +265,10 @@
             }, duration * 1000);
         }
         
-        // Create initial vesicles
         for (let i = 0; i < 15; i++) {
             setTimeout(createVesicle, Math.random() * 1500);
         }
         
-        // Continuously create new vesicles
         setInterval(createVesicle, 600 + Math.random() * 400);
     </script>
 </body>
