@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orontes Bio</title>
+    <title>Orontes Bio - About Me</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
-            color: #333;
+            color: #4a4a4a;
             text-align: center;
             min-height: 100vh;
             display: flex;
@@ -28,11 +30,25 @@
         h1 {
             margin: 0;
             font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 1.5rem auto;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            line-height: 1.6;
+            color: #5a5a5a;
         }
         nav {
             margin: 3rem 0;
@@ -49,15 +65,16 @@
         }
         nav ul li a {
             text-decoration: none;
-            color: #2980b9;
+            color: #3498db;
             font-size: 1.1rem;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
         }
         nav ul li a:hover {
-            background-color: #3498db;
-            color: white;
+            background-color: #a2d5f2;
+            color: #2c3e50;
         }
         main {
             flex: 1;
@@ -69,15 +86,106 @@
             padding: 1rem;
             width: 100%;
         }
+        .section {
+            margin: 2rem auto;
+            max-width: 700px;
+        }
+        .section a {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+        }
+        .section a:hover {
+            background-color: #a2d5f2;
+            color: #2c3e50;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+        }
+        .social-links a:hover {
+            background-color: #a2d5f2;
+            color: #2c3e50;
+        }
+        .social-links img {
+            width: 72px;
+            height: 72px;
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Orontes Bio Logo">
-        <h1>Orontes Bio</h1>
+        <h1>Orontes Bio - About Me</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="studies.html">Studies</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
     <main>
-        <p>Welcome to Orontes Bio, a platform dedicated to advancing biotechnology through innovative research, studies, and projects.</p>
+        <div class="section">
+            <h2>My Story</h2>
+            <p>I’m a passionate triathlete and biologist born and raised in the vibrant landscapes of Antakya, where the Orontes River (Asi Nehri) flows through the heart of my story. Growing up near the river, I spent my days cycling through its scenic surroundings and swimming 1km daily, a routine that fuels my discipline and love for nature. My connection to this region runs deep, rooted in its rich history and natural beauty.</p>
+        </div>
+        <div class="section">
+            <h2>Education</h2>
+            <p>My journey began in Gümüşgöze, where I attended Gümüşgöze Primary School, a place steeped in history near the renowned Yakto Mosaics and ancient Roman castle ruins, once a summer retreat for emperors. This unique blend of heritage and nature sparked my curiosity for the world around me. I continued my education at Necmi Asfuroğlu Anadolu Lisesi, Antakya’s premier public high school, where I developed a strong foundation for my academic pursuits.</p>
+            <p>I pursued my bachelor’s degree in biology at ODTÜ, where I honed my scientific expertise and passion for discovery. Now, as a master’s student at ODTÜ, I’m diving deeper into biotechnology, exploring innovative solutions to real-world challenges.</p>
+        </div>
+        <div class="section">
+            <h2>Orontes Bio</h2>
+            <p>With a deep-rooted passion for biology and a drive to innovate, I founded Orontes Bio to bridge science and the cultural legacy of my hometown. My experiences as a triathlete—balancing endurance, strategy, and resilience—shape my approach to tackling challenges in biotechnology.</p>
+        </div>
+        <div class="section">
+            <h2>Passion for Triathlon</h2>
+            <p>Whether I’m swimming my daily 1km, cycling through Antakya’s hills, or pushing the boundaries of scientific research, I’m driven by a commitment to growth, sustainability, and making a meaningful impact.</p>
+        </div>
+        <div class="section">
+            <h2>Connect with Me</h2>
+            <p>Follow my journey and stay updated with my latest work and insights on social media.</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@muhsin_akdogan" target="_blank">
+                    <img src="youtube_logo.png" alt="YouTube Logo"> YouTube
+                </a>
+                <a href="https://www.instagram.com/muhsin_akdogan" target="_blank">
+                    <img src="instagram_logo.png" alt="Instagram Logo"> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/muhsin-akdo%C4%9Fan-5779bb22b/" target="_blank">
+                    <img src="linkedin_logo.png" alt="LinkedIn Logo"> LinkedIn
+                </a>
+                <a href="https://www.researchgate.net/profile/Muhsin-Akdogan?ev=hdr_xprf" target="_blank">
+                    <img src="researchgate_logo.png" alt="ResearchGate Logo"> ResearchGate
+                </a>
+                <a href="https://github.com/akdoganmuhsin/" target="_blank">
+                    <img src="github_logo.png" alt="GitHub Logo"> GitHub
+                </a>
+            </div>
+        </div>
     </main>
     <nav>
         <ul>
